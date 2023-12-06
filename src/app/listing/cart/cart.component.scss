@@ -1,0 +1,15 @@
+.theading {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.close{
+    color: red;
+    margin-bottom: -6px;
+}
+
+.scroll-container {
+    height: calc(100vh - 20rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+}

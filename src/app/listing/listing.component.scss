@@ -1,0 +1,25 @@
+.custom-card {
+    flex: 0 0 15%;
+    max-width: 15%;
+    box-sizing: border-box;
+    padding-right: 16px;
+    margin-bottom: 16px;
+}
+
+.fluid-padding {
+    width: 100%;
+    margin-right: 10px
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    position: relative;
+}
+
+.custom-col {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -16px;
+}
