@@ -30,14 +30,21 @@ export class ListingComponent implements OnInit {
   }
 
   addToCart(product: any): void {
-    const newProduct = {
-      product: product.name,
-      price: product.price,
-      quantity: 1,
-      total: product.price
-    };
+    const existingElementIndex = this.dataSource.findIndex(element => element.product === product.name);
+    if (existingElementIndex !== -1) {
+      this.dataSource[existingElementIndex].quantity += 1;
+      this.dataSource[existingElementIndex].total = this.dataSource[existingElementIndex].quantity * product.price;
+    } else {
+      const newProduct = {
+        product: product.name,
+        price: product.price,
+        quantity: 1,
+        total: product.price
+      };
 
-    this.dataSource.push(newProduct);
+      this.dataSource.push(newProduct);
+    }
+
     this.dataSource = [...this.dataSource];
   }
 
