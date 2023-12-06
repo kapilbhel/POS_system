@@ -55,4 +55,7 @@ export class ListingComponent implements OnInit {
     this.dataSource = this.dataSource.filter((item) => item.product !== productToRemove.product);
   }
 
+  handleEmptyCart(): void {
+    this.dataSource = [];
+  }
 }

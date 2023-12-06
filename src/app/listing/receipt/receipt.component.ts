@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 export interface ReceiptData {
-  cartData: string;
+  cartData: any[];
   totalQuantity:number;
   subTotal:number;
   vat:number;
@@ -13,12 +14,16 @@ export interface ReceiptData {
   styleUrls: ['./receipt.component.scss']
 })
 export class ReceiptComponent implements OnInit {
-
-  constructor(public dialogRef: MatDialogRef<ReceiptComponent>,
+  cartData = []
+    constructor(public dialogRef: MatDialogRef<ReceiptComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ReceiptData) { }
 
   ngOnInit(): void {
     console.log(this.data)
+  }
+
+  close(){
+    this.dialogRef.close(this.data)
   }
 
 }

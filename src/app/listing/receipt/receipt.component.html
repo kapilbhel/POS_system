@@ -1,1 +1,49 @@
-<p>receipt works!</p>
+<div class="container-fluid">
+    <div class="heading">
+        Receipt
+    </div>
+    <div class="subheading" fxLayout="row" fxLayoutAlign="center center">
+        Sale No -- 00102
+    </div>
+    <p class="dateheading">Date:01-18-2018 12:03:13</p>
+    <div>
+        <!-- product-list.component.html -->
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="padding-left: 30px;">#</th>
+                    <th style="padding-left: 30px;">Products</th>
+                    <th style="padding-left: 30px;">Quantity</th>
+                    <th style="padding-left: 30px;">Sub Total</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let product of data.cartData; let i = index">
+                    <td style="padding-left: 30px;">{{ i + 1 }}</td>
+                    <td style="padding-left: 30px;">{{ product.product }}</td>
+                    <td style="padding-left: 30px;">{{ product.quantity }}</td>
+                    <td style="padding-left: 30px;">{{ product.quantity * product.price }} INR</td>
+                </tr>
+            </tbody>
+        </table>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+            <p>Total items</p>
+            <p>{{data.totalQuantity}}</p>
+            <p>Total</p>
+            <p class="highlight">{{data.subTotal}} INR</p>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center">
+            <p style="margin-right:4rem">Discount</p>
+            <p class="highlight" style="margin-right:1rem">10%</p>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center">
+            <p style="margin-right:4rem">VAT</p>
+            <p class="highlight" style="margin-right:1rem">10%</p>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="8px" style="padding:5px;">
+        <button (click)="close()" mat-button style="width:100%">Close</button>
+      </div>
+</div>

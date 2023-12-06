@@ -11,6 +11,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ReceiptComponent } from './receipt/receipt.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { TooltipListPipe } from './tooltiplist.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ReceiptComponent } from './receipt/receipt.component';
     FlexLayoutModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ]
 })
 export class ListingModule { }

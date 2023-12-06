@@ -18,6 +18,7 @@ export class CartComponent implements OnInit {
   @Input() dataSource: Cart[] = [];
   @Output() cancelSaleEvent = new EventEmitter<void>();
   @Output() removeProductEvent = new EventEmitter<Cart>();
+  @Output() emptyCartEvent = new EventEmitter<void>();
   
   displayedColumns: string[] = ['product', 'price', 'quantity', 'total'];
 
@@ -62,16 +63,19 @@ export class CartComponent implements OnInit {
 
   processSale(): void {
     const dialogRef = this.dialog.open(ReceiptComponent, {
+      width: '23%',
       data: {
         cartData: this.dataSource,
         totalQuantity: this.getTotalQuantity(),
         subTotal: this.gettotal(),
         vat: this.getVat(),
       },
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
       this.dataSource = [];
+      this.emptyCartEvent.emit();
     });
   }
 
