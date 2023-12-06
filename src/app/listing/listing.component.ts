@@ -46,4 +46,9 @@ export class ListingComponent implements OnInit {
     }
     this.dataSource = [...this.dataSource];
   }
+
+  handleCancelSale() {
+    this.dataSource = [];
+  }
+  
 }

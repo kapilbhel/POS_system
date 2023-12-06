@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ReceiptComponent } from '../receipt/receipt.component';
 
 export interface Cart {
   product: string;
@@ -14,10 +16,11 @@ export interface Cart {
 export class CartComponent implements OnInit {
 
   @Input() dataSource: Cart[] = [];
-
+  @Output() cancelSaleEvent = new EventEmitter<void>();
+  
   displayedColumns: string[] = ['product', 'price', 'quantity', 'total'];
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -49,6 +52,26 @@ export class CartComponent implements OnInit {
 
   getVat(): number {
     return this.gettotal() * 0.1;
+  }
+
+  cancelSale() {
+    this.dataSource = [];
+    this.cancelSaleEvent.emit();
+  }
+
+  processSale(): void {
+    const dialogRef = this.dialog.open(ReceiptComponent, {
+      data: {
+        cartData: this.dataSource,
+        totalQuantity: this.getTotalQuantity(),
+        subTotal: this.gettotal(),
+        vat: this.getVat(),
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.dataSource = [];
+    });
   }
 
 }

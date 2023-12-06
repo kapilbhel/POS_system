@@ -9,11 +9,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ReceiptComponent } from './receipt/receipt.component';
 
 @NgModule({
   declarations: [
     ListingComponent,
-    CartComponent
+    CartComponent,
+    ReceiptComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +25,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     FlexLayoutModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ]
 })
 export class ListingModule { }
