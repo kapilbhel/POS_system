@@ -54,7 +54,7 @@ export class ListingService {
       "price": "130",
       "category": "grocery",
       "description": "a classy laptop with 8GB RAM and with superb gaming capacity",
-      "image": "https://img.lovepik.com/element/45012/8521.png_860.png"
+      "image": "https://5.imimg.com/data5/SELLER/Default/2020/9/RI/WF/GL/106270270/orange.jpg"
     },
     {
       "name": "shoes women",

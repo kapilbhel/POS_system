@@ -70,7 +70,7 @@ export class CartComponent implements OnInit {
         subTotal: this.gettotal(),
         vat: this.getVat(),
       },
-
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
