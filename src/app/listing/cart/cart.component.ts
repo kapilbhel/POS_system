@@ -33,4 +33,10 @@ export class CartComponent implements OnInit {
       element.total = element.quantity * element.price;
     }
   }
+
+  removeProduct(element: Cart, index: number): void {
+    this.dataSource.splice(index, 1);
+    this.dataSource = [...this.dataSource];
+  }
+
 }

@@ -44,8 +44,6 @@ export class ListingComponent implements OnInit {
 
       this.dataSource.push(newProduct);
     }
-
     this.dataSource = [...this.dataSource];
   }
-
 }
