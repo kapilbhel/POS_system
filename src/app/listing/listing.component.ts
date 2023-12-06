@@ -30,7 +30,6 @@ export class ListingComponent implements OnInit {
 
   getshoppinglist() {
     this.listingService.getProducts().subscribe((res) => {
-      console.log(res)
       this.productlist = res;
     })
   }

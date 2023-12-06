@@ -14,12 +14,10 @@ export interface ReceiptData {
   styleUrls: ['./receipt.component.scss']
 })
 export class ReceiptComponent implements OnInit {
-  cartData = []
     constructor(public dialogRef: MatDialogRef<ReceiptComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ReceiptData) { }
 
   ngOnInit(): void {
-    console.log(this.data)
   }
 
   close(){
