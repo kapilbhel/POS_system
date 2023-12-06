@@ -14,6 +14,12 @@ export interface Cart {
 })
 export class ListingComponent implements OnInit {
 
+  categoryColors: { [category: string]: string } = {
+    computers: 'aqua',
+    clothing: 'lightcoral',
+    grocery: 'lightgreen',
+    electronics: 'lightblue'
+  };
   productlist: any[] = [];
   dataSource: Cart[] = [];
   constructor(private listingService: ListingService) { }
@@ -58,4 +64,5 @@ export class ListingComponent implements OnInit {
   handleEmptyCart(): void {
     this.dataSource = [];
   }
+
 }

@@ -6,7 +6,7 @@
             (emptyCartEvent)="handleEmptyCart()"></app-cart>
         </div>
         <div class="custom-col" fxLayout="row" fxFlex="60%" fxLayoutGap="6px">
-            <mat-card (click)="addToCart(product)" *ngFor="let product of productlist" class="custom-card" style="background-color:aqua">
+            <mat-card (click)="addToCart(product)" *ngFor="let product of productlist" class="custom-card"[style.background-color]="categoryColors[product.category]">
                 <mat-card-content>
                     <p>{{product.name}}</p>
                     <img [src]="product.image" alt="{{product.name}}" class="card-image" matTooltip="Description - {{product.description}} - Price {{product.price}} EUR" class="card-image">

@@ -1,9 +1,7 @@
 .custom-card {
-    flex: 0 0 15%;
     max-width: 15%;
-    box-sizing: border-box;
-    padding-right: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 5px;
+    height:190px;
 }
 
 .fluid-padding {
@@ -19,6 +17,9 @@
 }
 
 .custom-col {
+    height: calc(100vh - 3rem);
+    overflow-x: hidden;
+    overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
     margin-right: -16px;
