@@ -37,12 +37,27 @@
    </div>
      <mat-card>
        <div fxLayout="row" fxLayoutGap="16px">
-         <div fxLayout="column" fxFlex="40%">
+         <div fxLayout="column"  fxFlex="40%">
            <p>Sub Total</p>
            <p>Vat Tax</p>
            <p>Discount</p>
            <p>Total</p>
          </div>
+         <div fxLayout="column"  fxFlex="60%"  >
+          <div fxLayout="row" fxLayoutAlign="space-between none">
+            <p>{{gettotal()}}</p>
+            <p>{{ getTotalQuantity()}} items</p>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between none">
+            <p>10%</p>
+            <p>{{getVat()}} EUR</p>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between none">
+            <p>10%</p>
+            <p>{{getVat()}} EUR</p>
+          </div>
+          <p style="color:green">{{gettotal()}} EUR</p>
+        </div>
        </div>
      </mat-card>
      <div fxLayout="row" fxLayoutGap="8px" style="margin-top:10px">

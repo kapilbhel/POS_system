@@ -39,4 +39,16 @@ export class CartComponent implements OnInit {
     this.dataSource = [...this.dataSource];
   }
 
+  getTotalQuantity(): number {
+    return this.dataSource.reduce((acc, element) => acc + element.quantity, 0);
+  }
+
+  gettotal(): number {
+    return this.dataSource.reduce((acc, element) => acc + Number((element as Cart)?.total || 0), 0);
+  }
+
+  getVat(): number {
+    return this.gettotal() * 0.1;
+  }
+
 }
