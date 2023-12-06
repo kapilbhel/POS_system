@@ -17,6 +17,7 @@ export class CartComponent implements OnInit {
 
   @Input() dataSource: Cart[] = [];
   @Output() cancelSaleEvent = new EventEmitter<void>();
+  @Output() removeProductEvent = new EventEmitter<Cart>();
   
   displayedColumns: string[] = ['product', 'price', 'quantity', 'total'];
 
@@ -38,8 +39,8 @@ export class CartComponent implements OnInit {
   }
 
   removeProduct(element: Cart, index: number): void {
-    this.dataSource.splice(index, 1);
-    this.dataSource = [...this.dataSource];
+    this.dataSource = this.dataSource.filter((item) => item !== element);
+    this.removeProductEvent.emit(element);
   }
 
   getTotalQuantity(): number {

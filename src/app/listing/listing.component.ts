@@ -19,7 +19,7 @@ export class ListingComponent implements OnInit {
   constructor(private listingService: ListingService) { }
 
   ngOnInit(): void {
-    this.getshoppinglist()
+    this.getshoppinglist();
   }
 
   getshoppinglist() {
@@ -50,5 +50,9 @@ export class ListingComponent implements OnInit {
   handleCancelSale() {
     this.dataSource = [];
   }
-  
+
+  handleRemoveProduct(productToRemove: Cart): void {
+    this.dataSource = this.dataSource.filter((item) => item.product !== productToRemove.product);
+  }
+
 }
