@@ -17,11 +17,11 @@
        <ng-container matColumnDef="quantity">
          <th class="theading" mat-header-cell *matHeaderCellDef> Quantity </th>
          <td mat-cell *matCellDef="let element">
-           <button>
+           <button (click)="decreaseQuantity(element)">
              <mat-icon>remove</mat-icon>
            </button>
            {{element.quantity}}
-           <button>
+           <button (click)="increaseQuantity(element)">
              <mat-icon>add</mat-icon>
            </button>
          </td>

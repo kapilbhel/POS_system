@@ -21,4 +21,16 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  increaseQuantity(element: Cart): void {
+    element.quantity += 1;
+    element.total = element.quantity * element.price;
+  }
+
+  decreaseQuantity(element: Cart): void {
+    if (element.quantity > 1) {
+      element.quantity -= 1;
+      element.total = element.quantity * element.price;
+    }
+  }
 }
