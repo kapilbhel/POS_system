@@ -62,21 +62,22 @@ export class CartComponent implements OnInit {
   }
 
   processSale(): void {
-    const dialogRef = this.dialog.open(ReceiptComponent, {
-      width: '23%',
-      data: {
-        cartData: this.dataSource,
-        totalQuantity: this.getTotalQuantity(),
-        subTotal: this.gettotal(),
-        vat: this.getVat(),
-      },
-      disableClose: true
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.dataSource = [];
-      this.emptyCartEvent.emit();
-    });
+    if(this.dataSource.length){
+      const dialogRef = this.dialog.open(ReceiptComponent, {
+        width: '23%',
+        data: {
+          cartData: this.dataSource,
+          totalQuantity: this.getTotalQuantity(),
+          subTotal: this.gettotal(),
+          vat: this.getVat(),
+        },
+        disableClose: true
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        this.dataSource = [];
+        this.emptyCartEvent.emit();
+      });
+    }
   }
 
 }
