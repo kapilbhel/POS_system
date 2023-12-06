@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingService } from './listing.service';
 
+export interface Cart {
+  product: string;
+  price: number;
+  quantity: number;
+  total: number;
+}
 @Component({
   selector: 'app-listing',
   templateUrl: './listing.component.html',
@@ -9,7 +15,7 @@ import { ListingService } from './listing.service';
 export class ListingComponent implements OnInit {
 
   productlist: any[] = [];
-
+  dataSource: Cart[] = [];
   constructor(private listingService: ListingService) { }
 
   ngOnInit(): void {
@@ -22,4 +28,17 @@ export class ListingComponent implements OnInit {
       this.productlist = res;
     })
   }
+
+  addToCart(product: any): void {
+    const newProduct = {
+      product: product.name,
+      price: product.price,
+      quantity: 1,
+      total: product.price
+    };
+
+    this.dataSource.push(newProduct);
+    this.dataSource = [...this.dataSource];
+  }
+
 }

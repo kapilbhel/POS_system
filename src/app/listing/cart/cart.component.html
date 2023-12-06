@@ -2,11 +2,11 @@
     <div class="scroll-container">
      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"
        style="width:100%;background-color: #E8E8E8; margin-right: 10px;">
-       <ng-container matColumnDef="name" style="padding:20px">
+       <ng-container matColumnDef="product" style="padding:20px">
          <th class="theading" mat-header-cell *matHeaderCellDef> Products </th>
          <td mat-cell *matCellDef="let element">
            <mat-icon class="close">cancel</mat-icon>
-           {{element.name}}
+           {{element.product}}
          </td>
        </ng-container>
        <ng-container matColumnDef="price">

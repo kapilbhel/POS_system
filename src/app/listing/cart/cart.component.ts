@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 export interface Cart {
-  name: string;
+  product: string;
   price: number;
   quantity: number;
   total: number;
@@ -13,12 +13,9 @@ export interface Cart {
 })
 export class CartComponent implements OnInit {
 
-  data: Cart[] = [
-    { name: 'sweater', price: 130, quantity: 2, total: 130 },
-  ];
+  @Input() dataSource: Cart[] = [];
 
-  dataSource = this.data;
-  displayedColumns: string[] = ['name', 'price', 'quantity', 'total'];
+  displayedColumns: string[] = ['product', 'price', 'quantity', 'total'];
 
   constructor() { }
 
