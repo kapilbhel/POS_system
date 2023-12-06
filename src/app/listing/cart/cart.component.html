@@ -34,6 +34,13 @@
        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
      </table>
+     <div *ngIf="dataSource.length === 0">
+      <mat-card fxLayoutAlign="center center" style="height:100px;">
+        <mat-card-content>
+          THERE ARE NO PRODUCTS
+        </mat-card-content>
+      </mat-card>
+    </div>
    </div>
      <mat-card>
        <div fxLayout="row" fxLayoutGap="16px">
